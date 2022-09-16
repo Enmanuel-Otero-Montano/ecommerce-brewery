@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titulo %}Cerveceria | Error{% endblock %}
+
+{% block headboard %}Error 500{% endblock %}
+
+{% block contents %}
+    <p>Error interno en el servidor</p>
+    <img src="{% static 'assets/images/error-500.png' %}" alt="error 500. Error interno en el servidor">
+{% endblock %}

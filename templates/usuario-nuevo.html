@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block independent_styles %}
+    <link rel="stylesheet" href="{% static 'css/form-styles.css' %}">
+{% endblock %}
+
+{% block titulo %}Cerveceria | Usuario Nuevo{% endblock %}
+
+{% block headboard %}Crear cuenta{% endblock %}
+
+        {% block contents %}
+            <form class="forms register-form" action="" method="post">{% csrf_token %}
+                {% for campo in formulario %}
+                    {{campo.label_tag}}
+                    <div class="inputs-container">{{campo}}</div>
+                    {% for error in campo.errors %}
+                        {{error}}<!--TODO: Agragar estilos a los texto de error en el registro -->
+                    {% endfor %}
+                {% endfor %}
+                <button class="btn btn-submit" type="submit">Registrarse</button>
+            </form>
+        {% endblock %}

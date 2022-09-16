@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Cerveceria | Bienvenido{% endblock %}
+
+{% block headboard %}Bienvenido{% endblock %}
+
+{% block contents %}
+    <p>Bienvenido {{user.username | title}}</p>
+{% endblock %}

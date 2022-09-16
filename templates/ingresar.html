@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titulo %}Cerveceria | Ingresar{% endblock %}
+
+{% block independent_styles %}
+    <link rel="stylesheet" href="{% static 'css/form-styles.css' %}">
+{% endblock %}
+
+{% block headboard %}Ingresar al sitio{% endblock %}
+
+{% block contents %}
+    <form class="forms ingresar-form" action="" method="post">{% csrf_token %}
+        <!-- <div>{{formulario}}</div> -->
+        {% for campo in formulario %}
+            {{campo.label_tag}}
+            <div class="inputs-container">{{campo}}</div>
+            {% for error in campo.errors %}
+                {{error}}<!--TODO: Agragar estilos a los texto de error en el registro -->
+            {% endfor %}
+        {% endfor %}
+        <button class="btn btn-submit" type="submit">Ingresar</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,35 @@
+.forms {
+    width: min(90%, 300px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inputs-container {
+    margin: 7px 0 20px;
+}
+
+.inputs-container > input {
+    width: 100%;
+    height: 40px;
+    padding-left: 8px;
+    font-size: .9rem;
+}
+
+.text-area-no-resize {
+    resize: none;
+}
+
+.btn-submit {
+    display: block;
+    width: 120px;
+    height: 45px;
+    margin: 15px auto 25px;
+    font-size: 1rem;
+    background-color: var(--border-color);
+    color: white;
+    letter-spacing: 1px;
+}
+
+.btn-submit:hover {
+    opacity: .75;
+}
