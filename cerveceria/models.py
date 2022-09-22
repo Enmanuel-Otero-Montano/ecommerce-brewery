@@ -26,7 +26,7 @@ class Cerveza(models.Model):
     distribuidor = models.ForeignKey(Distribuidor, on_delete=models.CASCADE)
     descripción = models.TextField()
     stock = models.PositiveIntegerField()
-    precio = MoneyField(max_digits=14, decimal_places=2, default_currency='USD')
+    precio = MoneyField(max_digits=5, decimal_places=2, default_currency='USD')
     tamaño = models.PositiveIntegerField()
     grado_alcohol = models.DecimalField(max_digits = 2, decimal_places = 1, default = 00)
     TIPO = (

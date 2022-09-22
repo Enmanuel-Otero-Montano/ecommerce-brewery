@@ -11,6 +11,7 @@
 {% block headboard %}Nuestros Productos{% endblock %}
 
         {% block contents %}
+            <h2 class="text-centered">Ordenados por {{ordenados}} precio</h2>
             <form class="form-ordenar" id="form-ordenar" action="/ordenados-por">{% csrf_token %}
                 <label class="form-ordenar_label" for="ordenar">Ordenar por:</label>
                 <select class="select-order" name="ordenar" id="ordenar">

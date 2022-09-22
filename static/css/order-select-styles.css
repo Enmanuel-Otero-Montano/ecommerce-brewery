@@ -1,0 +1,41 @@
+.form-ordenar {
+    width: max-content;
+    margin: 60px auto 0;
+    border: solid .5px var(--border-color-two);
+    box-shadow: 0 0 3px 1px hsla(0, 0%, 0%, .2);
+}
+
+.form-ordenar_label {
+    margin-left: 4px;
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .6px;
+}
+
+.select-order {
+    appearance: none;
+    width: 75px;
+    margin-bottom: 3px;
+    font-size: .75rem;
+    font-weight: 500;
+    font-family: 'Montserrat Alternates', sans-serif;
+    border: none;
+    letter-spacing: .6px;
+    background-color: inherit;
+}
+
+.select-order:focus {
+    border: none;
+    outline: none;
+}
+
+.icon-arrow-down {
+    margin-right: 3px;
+}
+
+@media (hover:hover) {
+
+    .select-order:hover {
+        background-color: hsl(0, 0%, 95%);
+    }
+}

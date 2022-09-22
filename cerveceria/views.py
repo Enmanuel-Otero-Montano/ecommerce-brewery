@@ -53,8 +53,38 @@ def buscar_cerveza(request):
         return render(request, 'resultados-busqueda.html')
 
 def nuestros_productos(request):
-    productos = Cerveza.objects.all()
-    return render(request, 'nuestros-productos.html', {"productos": productos})
+    if "orderr" in request.GET:
+        ordenar_segun_usuario = request.GET["orderr"]
+        print(request.GET["orderr"])
+        if ordenar_segun_usuario == "mayor":
+            productos = Cerveza.objects.order_by("-precio")
+            return render(request, 'ordenados-descendentemente.html', {"productos": productos})
+    else:
+        productos = Cerveza.objects.all()
+        return render(request, 'nuestros-productos.html', {"productos": productos})
+    
+
+def productos_ordenados(request):
+    if "order" in request.GET:
+        ordenar_segun_usuario = request.GET["order"]
+        if ordenar_segun_usuario == "mayor":
+            productos = Cerveza.objects.order_by("-precio")
+            context = {
+                "productos": productos,
+                "ordenados": ordenar_segun_usuario
+            }
+            return render(request, 'ordenados-por.html', context)
+        elif ordenar_segun_usuario == "menor":
+            productos = Cerveza.objects.order_by("precio")
+            context = {
+                "productos": productos,
+                "ordenados": ordenar_segun_usuario
+            }
+            return render(request, 'ordenados-por.html', context)
+
+def product_details(request, id):
+    product = Cerveza.objects.get(pk = id)
+    return render(request, 'product-details.html', {"product": product})
 
 def new_user(request):
     if request.method == "POST":

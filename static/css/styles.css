@@ -1,7 +1,9 @@
 :root {
+    --primary-color: hsl(49, 96%, 50%); 
     --color-text-one: hsl(0, 0%, 10%);
     --border-color: hsl(0, 0%, 0%);
-    --background-almost-white: hsl(0, 0%, 96%)
+    --border-color-two: hsla(0, 0%, 0%, .3);
+    --background-almost-white: hsl(0, 0%, 95%);
 }
 
 * {
@@ -25,6 +27,12 @@ ul {
     border: none;
 }
 
+.text-centered {
+    text-align: center;
+}
+
+
+
 body {
     margin: 0;
     font-family: 'Montserrat Alternates', sans-serif;
@@ -36,7 +44,7 @@ body {
     align-items: center;
     position: relative;
     padding: 5px 15px;
-    background-color: hsl(49, 96%, 50%);
+    background-color: var(--primary-color);
 }
 
 .icons-search-cart-container {
@@ -93,13 +101,13 @@ body {
     height: 40px;
 }
 
-.btn-close-search-form {
-    margin-left: 20px;
+.btn-search {
     background-color: transparent;
 }
 
-.icon-menu-hide {
-    display: none;
+.btn-close-search-form {
+    margin-left: 20px;
+    background-color: transparent;
 }
 
 .header_nav {
@@ -109,6 +117,7 @@ body {
     width: 220px;
     height: 100vh;
     background-color: hsl(0, 0%, 100%);
+    z-index: 10;
 }
 
 .heade_nav_list {
@@ -126,7 +135,7 @@ body {
 
 .header_nav-show {
     transform: translateX(-220px);
-    transition: transform 1s;
+    transition: transform 500ms;
 }
 
 .register-login {
@@ -148,9 +157,19 @@ body {
     border: solid 1px var(--border-color);
 }
 
-.btn-menu {
+.btn-menu-open {
     width: 30px;
     height: 30px;
+    background-color: transparent;
+}
+
+.btn-menu-close {
+    position: relative;
+    left: calc(100% - 45px);
+    width: 30px;
+    height: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     background-color: transparent;
 }
 
@@ -158,7 +177,6 @@ body {
 
 .hero {
     font-size: 1.8rem;
-    text-align: center;
 }
 
 .background-image {
@@ -170,21 +188,21 @@ body {
     background-size: cover;
 }
 
-.sub-title {
-    text-align: center;
-}
-
 /* Estilos para la informació del producto */
 
+.sections-products-background {
+    margin-top: 15px;
+    background-color: hsl(0, 0%, 97%);
+}
+
 .products-main-container {
-    width: min(96%, 700px);
+    width: min(96%, 790px);
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     margin-left: auto;
     margin-right: auto;
-
 }
 
 .product-container {
@@ -217,13 +235,25 @@ body {
     font-weight: 500;
 }
 
+.beer-name_link {
+    color: var(--color-text-one);
+}
+
 .alcohol {
-    font-size: .8rem;
+    font-size: .85rem;
+}
+
+.text-price {
+    margin-top: 30px;
+    margin-bottom: 0;
+    font-size: .75rem;
+    letter-spacing: .8px;
 }
 
 .price {
-    margin-top: 40px;
+    margin-top: 5px;
     margin-bottom: 12px;
+    font-weight: 500;
 }
 
 .add-cart {
@@ -237,12 +267,12 @@ body {
     font-size: .85rem;
     letter-spacing: .6px;
     border-radius: 6px;
-    background-color: hsl(49, 96%, 50%);
+    background-color: var(--primary-color);
 }
 
 .description-container {
-    width: min(94%, 700px);
-    margin: 70px auto;
+    max-width: 318px;
+    margin: 50px auto 70px;
 }
 
 .description-container_title {
@@ -268,6 +298,7 @@ body {
 }
 
 .description-container_description {
+    font-size: .9rem;
     line-height: 1.7;
     letter-spacing: .9px;
 }
@@ -284,7 +315,7 @@ body {
 
 .modal-overlay-show {
     transform: scaleY(1);
-    transition: transform 50ms;
+    transition: transform 70ms;
 }
 
 /* Comienzan los estilos para los elementos del "footer" */
@@ -326,6 +357,13 @@ body {
     padding: 0;
 }
 
+.location-container {
+    width: min(95%, 397px);
+    margin: 40px auto;
+    box-shadow: 0 0 5px hsla(0, 0%, 0%, .5);
+}
+
+
 .list-payment-wrapper {
     margin-top: 25px;
     padding-top: 8px;
@@ -356,8 +394,37 @@ body {
 
     .btn-open-search-form:hover,
     .btn-close-search-form:hover,
-    .btn-menu:hover {
-        outline: solid 1px var(--border-color);
+    .btn-menu:hover,
+    .icon-cart:hover,
+    .btn-search:hover,
+    .footer_social-networks > li > a:hover > svg {
+        transform: scale(1.1, 1.1);
+    }
+
+    .location-container:hover {
+        box-shadow: 0 0 5px hsla(0, 0%, 0%, .8);
+    }
+
+    .add-cart:hover {
+        opacity: .75;
+    }
+}
+
+@media screen and (min-width: 525px) {
+
+    .description-container {
+        max-width: 510px;
+    }
+
+    .description-container_description {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .description-container {
+        max-width: 760px;
     }
 }
 
@@ -397,8 +464,13 @@ body {
         border: none;
     }
 
-    .btn-menu {
+    .btn-menu-open,
+    .btn-menu-close {
         display: none;
+    }
+
+    .description-container {
+        max-width: 940px;
     }
 }
 

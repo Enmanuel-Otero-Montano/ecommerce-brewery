@@ -22,6 +22,9 @@
     <header class="header">
         <img class="header_logo" src="../static/assets/images/logo-pequeño.png" alt="logo de la cerveceria">
         <nav class="header_nav">
+            <button class="btn btn-menu-close" id="btn-menu-close" aria-label="menu">
+                <svg class="icon-menu-close icon-menu-hide" width="19" height="19"><path fill="#000000" fill-rule="evenodd" d="M16.97 0l2.122 2.121-7.425 7.425 7.425 7.425-2.121 2.12-7.425-7.424-7.425 7.425L0 16.97l7.425-7.425L0 2.121 2.121 0l7.425 7.425L16.971 0z"/></svg>
+            </button>
             <ul class="heade_nav_list">
                 <li><a href="{% url 'inicio' %}">Inicio</a></li>
                 <li><a href="{% url 'nuestros-productos' %}">Nuestros Productos</a></li>
@@ -41,20 +44,19 @@
             <button class="btn btn-open-search-form" type="button" aria-label="buscar"><svg width="25" height="25" viewBox="0 0 24 24"><path d="M3.624,15a8.03,8.03,0,0,0,10.619.659l5.318,5.318a1,1,0,0,0,1.414-1.414l-5.318-5.318A8.04,8.04,0,0,0,3.624,3.624,8.042,8.042,0,0,0,3.624,15Zm1.414-9.96a6.043,6.043,0,1,1-1.77,4.274A6,6,0,0,1,5.038,5.038ZM4.622,9.311a1,1,0,0,1,2,0A2.692,2.692,0,0,0,9.311,12a1,1,0,0,1,0,2A4.7,4.7,0,0,1,4.622,9.311Z"/></svg></button>
             <a href="#" class="icon-cart"><svg width="22" height="20"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#000005" fill-rule="nonzero"/></svg></a>
         </div>
-        <button class="btn btn-menu" id="btn-menu" aria-label="menu">
+        <button class="btn btn-menu-open" id="btn-menu-open" aria-label="menu">
             <svg class="icon-menu-open" width="32" height="32" viewBox="0 0 32 32"><path d="M5.333 22.667h21.333v-2.667h-21.333v2.667zM5.333 17.333h21.333v-2.667h-21.333v2.667zM5.333 9.333v2.667h21.333v-2.667h-21.333z"/></svg>
-            <svg class="icon-menu-close icon-menu-hide" width="19" height="19"><path fill="#000000" fill-rule="evenodd" d="M16.97 0l2.122 2.121-7.425 7.425 7.425 7.425-2.121 2.12-7.425-7.424-7.425 7.425L0 16.97l7.425-7.425L0 2.121 2.121 0l7.425 7.425L16.971 0z"/></svg>
         </button>
         <div class="container-search-form">
             <form class="header_search-form" method="get" action="/resultados-busqueda">
-                <input class="search-beer" type="text" name="search-beer" id="search-beer" placeholder="Buscar cerveza">
+                <input class="search-beer" type="text" name="search-beer" id="search-beer" placeholder="Buscar cerveza" required>
                 <button class="btn btn-search" type="submit" aria-label="buscar"><svg width="25" height="25" viewBox="0 0 24 24"><path d="M3.624,15a8.03,8.03,0,0,0,10.619.659l5.318,5.318a1,1,0,0,0,1.414-1.414l-5.318-5.318A8.04,8.04,0,0,0,3.624,3.624,8.042,8.042,0,0,0,3.624,15Zm1.414-9.96a6.043,6.043,0,1,1-1.77,4.274A6,6,0,0,1,5.038,5.038ZM4.622,9.311a1,1,0,0,1,2,0A2.692,2.692,0,0,0,9.311,12a1,1,0,0,1,0,2A4.7,4.7,0,0,1,4.622,9.311Z"/></svg></button>
             </form>
             <button class="btn btn-close-search-form"><svg class="icon-menu-close" width="19" height="19"><path fill="#000000" fill-rule="evenodd" d="M16.97 0l2.122 2.121-7.425 7.425 7.425 7.425-2.121 2.12-7.425-7.424-7.425 7.425L0 16.97l7.425-7.425L0 2.121 2.121 0l7.425 7.425L16.971 0z"/></svg></button>
         </div>
     </header>
     <main class="main">
-        <h1 class="hero">{% block headboard %} {% endblock %}</h1>
+        <h1 class="hero text-centered">{% block headboard %} {% endblock %}</h1>
         {% block contents %} {% endblock %}
         <div class="modal-overlay"></div>
     </main>
@@ -67,9 +69,14 @@
             <li><a href="#">Política de privacidad</a></li>
         </ul>
         <ul class="footer_social-networks">
-            <li><a href="#"><svg width="26" height="26" viewBox="0 0 64 64"><path stroke-width="0" fill="#000000" d="M60 16 L54 17 L58 12 L51 14 C42 4 28 15 32 24 C16 24 8 12 8 12 C8 12 2 21 12 28 L6 26 C6 32 10 36 17 38 L10 38 C14 46 21 46 21 46 C21 46 15 51 4 51 C37 67 57 37 54 21 Z"/></svg></a></li>
-            <li><a href="#"><svg width="26" height="26" viewBox="0 0 24 24" stroke-width="2" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3"/><line x1="16.5" y1="7.5" x2="16.5" y2="7.501"/></svg></a></li>
+            <li><a href="#"><svg width="26" height="26" role="img" viewBox="0 0 64 64"><path stroke-width="0" fill="#000000" d="M60 16 L54 17 L58 12 L51 14 C42 4 28 15 32 24 C16 24 8 12 8 12 C8 12 2 21 12 28 L6 26 C6 32 10 36 17 38 L10 38 C14 46 21 46 21 46 C21 46 15 51 4 51 C37 67 57 37 54 21 Z"/></svg></a></li>
+            <li><a href="#"><svg width="26" height="26" role="img" viewBox="0 0 24 24" stroke-width="2" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3"/><line x1="16.5" y1="7.5" x2="16.5" y2="7.501"/></svg></a></li>
         </ul>
+        <div class="location-container">
+            <a href="https://goo.gl/maps/QCuWDofZftrD692w9" aria-label="mapa que mustra la ubicacion del local" target="_blank">
+                <img src="{% static 'assets/images/imagen-de-la-ubicacion-cerveceria.webp' %}" alt="">
+            </a>
+        </div>
         <div class="list-payment-wrapper">
             <ul class="list-payment">
                 <li class="list-payment__item"><svg class="icon icon--full-color" role="img" viewBox="0 0 38 24" width="38" height="24" aria-labelledby="pi-american_express"><title id="pi-american_express">American Express</title><g fill="none"><path fill="#000" d="M35,0 L3,0 C1.3,0 0,1.3 0,3 L0,21 C0,22.7 1.4,24 3,24 L35,24 C36.7,24 38,22.7 38,21 L38,3 C38,1.3 36.6,0 35,0 Z" opacity=".07"></path><path fill="#006FCF" d="M35,1 C36.1,1 37,1.9 37,3 L37,21 C37,22.1 36.1,23 35,23 L3,23 C1.9,23 1,22.1 1,21 L1,3 C1,1.9 1.9,1 3,1 L35,1"></path><path fill="#FFF" d="M8.971,10.268 L9.745,12.144 L8.203,12.144 L8.971,10.268 Z M25.046,10.346 L22.069,10.346 L22.069,11.173 L24.998,11.173 L24.998,12.412 L22.075,12.412 L22.075,13.334 L25.052,13.334 L25.052,14.073 L27.129,11.828 L25.052,9.488 L25.046,10.346 L25.046,10.346 Z M10.983,8.006 L14.978,8.006 L15.865,9.941 L16.687,8 L27.057,8 L28.135,9.19 L29.25,8 L34.013,8 L30.494,11.852 L33.977,15.68 L29.143,15.68 L28.065,14.49 L26.94,15.68 L10.03,15.68 L9.536,14.49 L8.406,14.49 L7.911,15.68 L4,15.68 L7.286,8 L10.716,8 L10.983,8.006 Z M19.646,9.084 L17.407,9.084 L15.907,12.62 L14.282,9.084 L12.06,9.084 L12.06,13.894 L10,9.084 L8.007,9.084 L5.625,14.596 L7.18,14.596 L7.674,13.406 L10.27,13.406 L10.764,14.596 L13.484,14.596 L13.484,10.661 L15.235,14.602 L16.425,14.602 L18.165,10.673 L18.165,14.603 L19.623,14.603 L19.647,9.083 L19.646,9.084 Z M28.986,11.852 L31.517,9.084 L29.695,9.084 L28.094,10.81 L26.546,9.084 L20.652,9.084 L20.652,14.602 L26.462,14.602 L28.076,12.864 L29.624,14.602 L31.499,14.602 L28.987,11.852 L28.986,11.852 Z"></path></g></svg></li>

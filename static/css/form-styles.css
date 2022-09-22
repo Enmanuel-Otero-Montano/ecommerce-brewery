@@ -30,6 +30,9 @@
     letter-spacing: 1px;
 }
 
-.btn-submit:hover {
-    opacity: .75;
+@media (hover:hover) {
+
+    .btn-submit:hover {
+        opacity: .75;
+    }
 }
