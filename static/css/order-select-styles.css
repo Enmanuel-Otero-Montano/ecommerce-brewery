@@ -1,6 +1,7 @@
 .form-ordenar {
     width: max-content;
     margin: 60px auto 0;
+    padding: 3px 2px;
     border: solid .5px var(--border-color-two);
     box-shadow: 0 0 3px 1px hsla(0, 0%, 0%, .2);
 }

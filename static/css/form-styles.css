@@ -25,7 +25,7 @@
     height: 45px;
     margin: 15px auto 25px;
     font-size: 1rem;
-    background-color: var(--border-color);
+    background-color: var(--secondary-color);
     color: white;
     letter-spacing: 1px;
 }

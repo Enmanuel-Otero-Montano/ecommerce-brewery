@@ -1,3 +1,4 @@
+from multiprocessing import context
 from os import access
 from django.shortcuts import render
 from django.core.mail import EmailMessage
@@ -84,7 +85,12 @@ def productos_ordenados(request):
 
 def product_details(request, id):
     product = Cerveza.objects.get(pk = id)
-    return render(request, 'product-details.html', {"product": product})
+    url_to_share = request.build_absolute_uri()
+    context = {
+        "product": product,
+        "url": url_to_share
+    }
+    return render(request, 'product-details.html', context)
 
 def new_user(request):
     if request.method == "POST":

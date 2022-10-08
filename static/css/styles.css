@@ -1,7 +1,8 @@
 :root {
     --primary-color: hsl(49, 96%, 50%); 
+    --secondary-color: hsl(0, 0%, 0%);
     --color-text-one: hsl(0, 0%, 10%);
-    --border-color: hsl(0, 0%, 0%);
+    --border-color: hsl(0, 0%, 2%);
     --border-color-two: hsla(0, 0%, 0%, .3);
     --background-almost-white: hsl(0, 0%, 95%);
 }
@@ -181,18 +182,19 @@ body {
 
 .background-image {
     width: 100%;
-    height: 600px;
+    height: 100vh;
     margin-bottom: 80px;
-    background: linear-gradient(hsla(0, 0%, 0%, 0.5), hsla(0, 0%, 0%, 0.5)), url(../assets/images/bucanero-fondo-principal.jpg);
+    background: linear-gradient(hsla(0, 0%, 0%, 0.5), hsla(0, 0%, 0%, 0.3)), url(../assets/images/bucanero-fondo-principal-vertical.webp);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
 /* Estilos para la informació del producto */
 
 .sections-products-background {
     margin-top: 15px;
-    background-color: hsl(0, 0%, 97%);
+    background-color: hsl(0, 0%, 98%);
 }
 
 .products-main-container {
@@ -408,9 +410,27 @@ body {
     .add-cart:hover {
         opacity: .75;
     }
+
+    .btn-redirect-home {
+        display: block;
+        width: 120px;
+        height: 45px;
+        margin: 40px auto;
+        padding-top: 14px;
+        color: hsl(0, 0%, 100%);
+        text-decoration: none;
+        background-color: var(--secondary-color);
+    }
 }
 
 @media screen and (min-width: 525px) {
+
+    .background-image {
+        background: linear-gradient(hsla(0, 0%, 0%, 0.5), hsla(0, 0%, 0%, 0.3)), url(../assets/images/bucanero-fondo-horizontal-grande.webp);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
 
     .description-container {
         max-width: 510px;
